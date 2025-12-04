@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		D524DDC02EE12B3D008F45D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D524DDA92EE12B3C008F45D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D524DDB02EE12B3C008F45D7;
+			remoteInfo = MetroMuzik;
+		};
+		D524DDCA2EE12B3D008F45D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D524DDA92EE12B3C008F45D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D524DDB02EE12B3C008F45D7;
+			remoteInfo = MetroMuzik;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D524DDB12EE12B3C008F45D7 /* MetroMuzik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroMuzik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D524DDBF2EE12B3D008F45D7 /* MetroMuzikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroMuzikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroMuzikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D524DDE62EE1362B008F45D7 /* Exceptions for "MetroMuzik" folder in "MetroMuzikTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				bip.wav,
+				boop.wav,
+			);
+			target = D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D524DDB32EE12B3C008F45D7 /* MetroMuzik */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D524DDE62EE1362B008F45D7 /* Exceptions for "MetroMuzik" folder in "MetroMuzikTests" target */,
+			);
+			path = MetroMuzik;
+			sourceTree = "<group>";
+		};
+		D524DDC22EE12B3D008F45D7 /* MetroMuzikTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MetroMuzikTests;
+			sourceTree = "<group>";
+		};
+		D524DDCC2EE12B3D008F45D7 /* MetroMuzikUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MetroMuzikUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D524DDAE2EE12B3C008F45D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDBC2EE12B3D008F45D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDC62EE12B3D008F45D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D524DDA82EE12B3C008F45D7 = {
+			isa = PBXGroup;
+			children = (
+				D524DDE52EE13068008F45D7 /* WavFiles */,
+				D524DDB32EE12B3C008F45D7 /* MetroMuzik */,
+				D524DDC22EE12B3D008F45D7 /* MetroMuzikTests */,
+				D524DDCC2EE12B3D008F45D7 /* MetroMuzikUITests */,
+				D524DDB22EE12B3C008F45D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D524DDB22EE12B3C008F45D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D524DDB12EE12B3C008F45D7 /* MetroMuzik.app */,
+				D524DDBF2EE12B3D008F45D7 /* MetroMuzikTests.xctest */,
+				D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D524DDE52EE13068008F45D7 /* WavFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WavFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D524DDB02EE12B3C008F45D7 /* MetroMuzik */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D524DDD32EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzik" */;
+			buildPhases = (
+				D524DDAD2EE12B3C008F45D7 /* Sources */,
+				D524DDAE2EE12B3C008F45D7 /* Frameworks */,
+				D524DDAF2EE12B3C008F45D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D524DDB32EE12B3C008F45D7 /* MetroMuzik */,
+			);
+			name = MetroMuzik;
+			packageProductDependencies = (
+			);
+			productName = MetroMuzik;
+			productReference = D524DDB12EE12B3C008F45D7 /* MetroMuzik.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D524DDD62EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzikTests" */;
+			buildPhases = (
+				D524DDBB2EE12B3D008F45D7 /* Sources */,
+				D524DDBC2EE12B3D008F45D7 /* Frameworks */,
+				D524DDBD2EE12B3D008F45D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D524DDC12EE12B3D008F45D7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D524DDC22EE12B3D008F45D7 /* MetroMuzikTests */,
+			);
+			name = MetroMuzikTests;
+			packageProductDependencies = (
+			);
+			productName = MetroMuzikTests;
+			productReference = D524DDBF2EE12B3D008F45D7 /* MetroMuzikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D524DDC82EE12B3D008F45D7 /* MetroMuzikUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D524DDD92EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzikUITests" */;
+			buildPhases = (
+				D524DDC52EE12B3D008F45D7 /* Sources */,
+				D524DDC62EE12B3D008F45D7 /* Frameworks */,
+				D524DDC72EE12B3D008F45D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D524DDCB2EE12B3D008F45D7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D524DDCC2EE12B3D008F45D7 /* MetroMuzikUITests */,
+			);
+			name = MetroMuzikUITests;
+			packageProductDependencies = (
+			);
+			productName = MetroMuzikUITests;
+			productReference = D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D524DDA92EE12B3C008F45D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					D524DDB02EE12B3C008F45D7 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					D524DDBE2EE12B3D008F45D7 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = D524DDB02EE12B3C008F45D7;
+					};
+					D524DDC82EE12B3D008F45D7 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = D524DDB02EE12B3C008F45D7;
+					};
+				};
+			};
+			buildConfigurationList = D524DDAC2EE12B3C008F45D7 /* Build configuration list for PBXProject "MetroMuzik" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D524DDA82EE12B3C008F45D7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D524DDB22EE12B3C008F45D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D524DDB02EE12B3C008F45D7 /* MetroMuzik */,
+				D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */,
+				D524DDC82EE12B3D008F45D7 /* MetroMuzikUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D524DDAF2EE12B3C008F45D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDBD2EE12B3D008F45D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDC72EE12B3D008F45D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D524DDAD2EE12B3C008F45D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDBB2EE12B3D008F45D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D524DDC52EE12B3D008F45D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D524DDC12EE12B3D008F45D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D524DDB02EE12B3C008F45D7 /* MetroMuzik */;
+			targetProxy = D524DDC02EE12B3D008F45D7 /* PBXContainerItemProxy */;
+		};
+		D524DDCB2EE12B3D008F45D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D524DDB02EE12B3C008F45D7 /* MetroMuzik */;
+			targetProxy = D524DDCA2EE12B3D008F45D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D524DDD12EE12B3D008F45D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D524DDD22EE12B3D008F45D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		D524DDD42EE12B3D008F45D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MetroMuzik/MetroMuzik.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D524DDD52EE12B3D008F45D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MetroMuzik/MetroMuzik.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D524DDD72EE12B3D008F45D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetroMuzik.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MetroMuzik";
+			};
+			name = Debug;
+		};
+		D524DDD82EE12B3D008F45D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetroMuzik.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MetroMuzik";
+			};
+			name = Release;
+		};
+		D524DDDA2EE12B3D008F45D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MetroMuzik;
+			};
+			name = Debug;
+		};
+		D524DDDB2EE12B3D008F45D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nik.lab.MetroMuzikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MetroMuzik;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D524DDAC2EE12B3C008F45D7 /* Build configuration list for PBXProject "MetroMuzik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D524DDD12EE12B3D008F45D7 /* Debug */,
+				D524DDD22EE12B3D008F45D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D524DDD32EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D524DDD42EE12B3D008F45D7 /* Debug */,
+				D524DDD52EE12B3D008F45D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D524DDD62EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzikTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D524DDD72EE12B3D008F45D7 /* Debug */,
+				D524DDD82EE12B3D008F45D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D524DDD92EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzikUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D524DDDA2EE12B3D008F45D7 /* Debug */,
+				D524DDDB2EE12B3D008F45D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D524DDA92EE12B3C008F45D7 /* Project object */;
+}

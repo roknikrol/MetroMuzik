@@ -1,0 +1,168 @@
+//
+//  MetronomeEngine.swift
+//  MetroMuzik
+//
+//  Created by Nikita Podobedov on 12/3/25.
+//
+
+import Foundation
+import AVFoundation
+import AppKit // Needed for NSSound
+
+class MetronomeEngine: ObservableObject {
+    @Published var bpm: Double = 120.0
+    @Published var isPlaying: Bool = false
+    @Published var timeSignature: Int = 4
+    @Published var subdivision: Int = 1 // 1 = quarter, 2 = eighth
+    
+    private var currentBeat: Int = 0
+    private var subTickCount: Int = 0
+    
+    private var timer: Timer?
+    
+    private var accentPlayer: AVAudioPlayer?
+    private var subPlayer: AVAudioPlayer?
+    
+    init(){
+        setupAudioPLayer()
+    }
+    
+    private func setupAudioPLayer() {
+        func loadPlayer(fileName: String) -> AVAudioPlayer? {
+            guard let soundURL = Bundle.main.url(forResource: fileName, withExtension: "wav") else {
+                print("Sound file not found: \(fileName).wav")
+                return nil
+            }
+            
+            do {
+                let player = try AVAudioPlayer(contentsOf: soundURL)
+                player.prepareToPlay()
+                return player
+            } catch {
+                print("Error loading sound file: \(error)")
+                return nil
+            }
+        }
+        //initialize both player
+        accentPlayer = loadPlayer(fileName: "bip")
+        subPlayer = loadPlayer(fileName: "boop")
+    }
+    
+    // MARK: - update bpm from knob
+    // For Tap Tempo logic
+    private var tapTimes: [Date] = []
+    
+    func togglePlay() {
+        isPlaying.toggle()
+        if isPlaying {
+            startTimer()
+        } else {
+            stopTimer()
+        }
+    }
+    
+    private func startTimer() {
+        stopTimer()
+    
+        currentBeat = 0
+        subTickCount = 0
+        
+        // Calculate interval: 60 seconds / BPM / subdivision
+        let interval = 60.0 / bpm / Double(subdivision)
+        
+        // Schedule the timer
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+            self.advanceBeatAndPLayTick()
+        }
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    
+    private func advanceBeatAndPLayTick() {
+        // 1. Advance the sub-tick counter
+        subTickCount += 1
+        
+        // 2. Check if we've completed a main beat (1, 2, 3, 4...)
+        if subTickCount >= subdivision {
+            subTickCount = 0
+            currentBeat += 1
+        }
+        
+        // 3. Check if we've started a new measure (Beat 1)
+        if currentBeat > timeSignature {
+            currentBeat = 1 // Reset to the first beat of the next measure
+        }
+        
+        // 4. Decide which sound to play
+        
+        // Play Accent sound only on the first subdivision tick (subTickCount == 0)
+        // AND only if it's the first beat of the measure (currentBeat == 1)
+        if currentBeat == 1 && subTickCount == 0 {
+            playAccentTick()
+        } else {
+            playSubTick()
+        }
+    }
+    
+    // In MetronomeEngine.swift
+
+    private func playAccentTick() {
+        accentPlayer?.stop()
+        accentPlayer?.currentTime = 0
+        accentPlayer?.play()
+    }
+
+    private func playSubTick() {
+        subPlayer?.stop()
+        subPlayer?.currentTime = 0
+        subPlayer?.play()
+    }
+    
+    // MARK: - update bpm from knob
+    // Updates BPM based on the 3D wheel rotation
+    func updateBpmFromKnob(angle: Double) {
+        // Map 0-360 degrees to 40-240 BPM
+        // Normalize angle to 0-1
+        let normalized = angle / 360.0
+        let newBpm = 40 + (normalized * 200) // Range 40 to 240
+        self.bpm = max(40, min(240, newBpm))
+        
+        // If playing, restart timer to catch up to new speed immediately
+        if isPlaying { startTimer() }
+    }
+    
+    
+    // MARK: - Tap tempo
+    ///
+    func tapTempo() {
+        let now = Date()
+        
+        // Reset if taps are too far apart (start over)
+        if let lastTap = tapTimes.last, now.timeIntervalSince(lastTap) > 2.0 {
+            tapTimes.removeAll()
+        }
+        
+        tapTimes.append(now)
+        
+        // We need at least 2 taps to calculate intervals
+        if tapTimes.count > 1 {
+            // Keep only last 5 taps for average
+            if tapTimes.count > 5 { tapTimes.removeFirst() }
+            
+            var intervals: [TimeInterval] = []
+            for i in 1..<tapTimes.count {
+                intervals.append(tapTimes[i].timeIntervalSince(tapTimes[i-1]))
+            }
+            
+            let avgInterval = intervals.reduce(0, +) / Double(intervals.count)
+            let newBpm = 60.0 / avgInterval
+            self.bpm = round(newBpm)
+            
+            if isPlaying { startTimer() }
+        }
+    }
+}
