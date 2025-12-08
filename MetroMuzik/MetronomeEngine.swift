@@ -125,11 +125,16 @@ class MetronomeEngine: ObservableObject {
     // MARK: - update bpm from knob
     // Updates BPM based on the 3D wheel rotation
     func updateBpmFromKnob(angle: Double) {
-        // Map 0-360 degrees to 40-240 BPM
-        // Normalize angle to 0-1
-        let normalized = angle / 360.0
-        let newBpm = 40 + (normalized * 200) // Range 40 to 240
-        self.bpm = max(40, min(240, newBpm))
+        // angle is in degrees, 0° at noon, increasing clockwise
+
+        // Each 25° → 5 BPM, starting at 120 BPM when angle = 0°
+        var newBpm = 120.0 + (angle / 25.0) * 5.0
+
+        // Optional clamp to keep in a sane range
+        if newBpm < 40.0 { newBpm = 40.0 }
+        if newBpm > 400.0 { newBpm = 400.0 }
+
+        bpm = newBpm
         
         // If playing, restart timer to catch up to new speed immediately
         if isPlaying { startTimer() }

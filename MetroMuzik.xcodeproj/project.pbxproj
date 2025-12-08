@@ -89,7 +89,6 @@
 		D524DDA82EE12B3C008F45D7 = {
 			isa = PBXGroup;
 			children = (
-				D524DDE52EE13068008F45D7 /* WavFiles */,
 				D524DDB32EE12B3C008F45D7 /* MetroMuzik */,
 				D524DDC22EE12B3D008F45D7 /* MetroMuzikTests */,
 				D524DDCC2EE12B3D008F45D7 /* MetroMuzikUITests */,
@@ -105,13 +104,6 @@
 				D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D524DDE52EE13068008F45D7 /* WavFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WavFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

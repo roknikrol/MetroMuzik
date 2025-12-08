@@ -65,14 +65,9 @@ struct ContentView: View {
                         .frame(width: 250, height: 250)
                         .shadow(color: .darkShadow, radius: 10, x: 10, y: 10)
                         .shadow(color: .lightShadow, radius: 10, x: -5, y: -5)
-                    
-                
-                    // The Rotating Knob
-                    KnobView(bpm: $engine.bpm) { angle in
-                        engine.updateBpmFromKnob(angle: angle)
-                    }
-                    
-                    // BPM Display in Center
+
+                    KnobView(bpm: $engine.bpm)
+
                     Text("\(Int(engine.bpm))")
                         .font(.system(size: 50, weight: .bold, design: .monospaced))
                         .foregroundColor(.gray)
@@ -114,71 +109,137 @@ struct ContentView: View {
         default: return "music.note"
         }
     }
+    
+    
+    // Convert BPM back to angle for rendering
+    // 120 BPM = 0° (noon). Every 25° corresponds to 5 BPM.
+    func calculateAngleFromBPM() -> Double {
+        let steps = (engine.bpm - 120.0) / 5.0
+        let angle = steps * 25.0
+        return angle
+    }
 }
 
 // MARK: - Custom UI Components
 
 // The 3D Wheel Logic
-struct KnobView: View {
+ struct KnobView: View {
     @Binding var bpm: Double
-    var onUpdate: (Double) -> Void
-    
-    @State private var angle: Double = 0.0
-    
+
+    @State private var totalRotation: Double = 0.0   // can be any number of degrees (multi-turn)
+    @State private var lastDragAngle: Double? = nil  // 0–360 for current drag
+
     var body: some View {
         GeometryReader { geometry in
-            let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
-            
+            let center = CGPoint(x: geometry.size.width / 2,
+                                 y: geometry.size.height / 2)
+
             ZStack {
                 // The Wheel Shape
                 Circle()
                     .fill(
-                        LinearGradient(gradient: Gradient(colors: [Color.offWhite, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color.offWhite, Color.white]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                // Inner shadow simulation for 3D feel
                     .overlay(
                         Circle()
                             .stroke(Color.gray.opacity(0.1), lineWidth: 4)
                             .blur(radius: 4)
                             .offset(x: 2, y: 2)
-                            .mask(Circle().fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .topLeading, endPoint: .bottomTrailing)))
+                            .mask(
+                                Circle().fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.black, Color.clear]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                            )
                     )
-                
-                // The Tiny Pin (Indicator)
+
+                // Tick markings around the wheel
+                ForEach(0..<72, id: \.self) { tick in
+                    Capsule()
+                        .fill(Color.gray.opacity(tick % 6 == 0 ? 0.5 : 0.2))
+                        .frame(width: 2, height: tick % 6 == 0 ? 14 : 7)
+                        .offset(x: 0, y: -95)
+                        .rotationEffect(.degrees(Double(tick) * 5)) // 5° per tick
+                }
+
+                // The Tiny Pin (Indicator) – part of the knob face
                 Circle()
                     .fill(Color.gray)
                     .frame(width: 15, height: 15)
-                    .offset(x: 0, y: -90) // Push pin to edge
-                    .rotationEffect(.degrees(calculateAngleFromBPM())) // Rotate pin based on current BPM
-                
+                    .offset(x: 0, y: -90) // push pin to edge
             }
-            // The Drag Logic
+            // Rotate the entire knob (wheel, ticks, and pin) like a physical button
+            .rotationEffect(.degrees(totalRotation))
             .gesture(
                 DragGesture()
                     .onChanged { value in
-                        // Calculate vector from center to finger
-                        let vector = CGVector(dx: value.location.x - center.x, dy: value.location.y - center.y)
-                        
-                        // Get Angle using atan2 (standard trig)
+                        // Vector from center to finger
+                        let vector = CGVector(dx: value.location.x - center.x,
+                                              dy: value.location.y - center.y)
+
+                        // Base angle from finger position
                         let radians = atan2(vector.dy, vector.dx)
-                        var degrees = radians * 180 / .pi + 90 // +90 to align 0 at top
-                        
+                        var degrees = radians * 180 / .pi + 90 // 0° at noon
                         if degrees < 0 { degrees += 360 }
-                        
-                        self.angle = degrees
-                        self.onUpdate(degrees)
+
+                        if let last = lastDragAngle {
+                            // Smallest signed delta between last and current
+                            var delta = degrees - last
+                            if delta > 180 { delta -= 360 }
+                            if delta < -180 { delta += 360 }
+
+                            totalRotation += delta
+                            updateBpmFromRotation()
+                        }
+
+                        lastDragAngle = degrees
+                    }
+                    .onEnded { _ in
+                        lastDragAngle = nil
                     }
             )
+            .onAppear {
+                // Initialize rotation from current BPM
+                totalRotation = rotationForBpm(bpm)
+            }
+            .onChange(of: bpm) { newValue in
+                // Keep knob in sync if BPM changes from elsewhere (e.g. Tap)
+                totalRotation = rotationForBpm(newValue)
+            }
         }
         .frame(width: 200, height: 200)
     }
-    
-    // Convert BPM back to Angle for initial rendering
-    func calculateAngleFromBPM() -> Double {
-        // Inverse of the math in Engine
-        // BPM = 40 + (norm * 200) -> norm = (BPM - 40) / 200
-        let norm = (bpm - 40) / 200
-        return norm * 360
+
+    /// Map totalRotation → BPM.
+    /// 120 BPM = 0° (pin at noon).
+    /// Every full revolution (360°) changes BPM by 20.
+    private func updateBpmFromRotation() {
+        let bpmPerRevolution = 20.0
+        let centerBpm = 120.0
+
+        let revolutions = totalRotation / 360.0
+        var newBpm = centerBpm + revolutions * bpmPerRevolution
+
+        // Clamp to [40, 400]
+        newBpm = max(40.0, min(400.0, newBpm))
+
+        bpm = newBpm
+    }
+
+    /// Inverse mapping: BPM → totalRotation (for initial state / external changes)
+    private func rotationForBpm(_ bpm: Double) -> Double {
+        let bpmPerRevolution = 20.0
+        let centerBpm = 120.0
+
+        let revolutions = (bpm - centerBpm) / bpmPerRevolution
+        return revolutions * 360.0
     }
 }
 
