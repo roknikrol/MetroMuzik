@@ -8,6 +8,10 @@
 import Foundation
 import AVFoundation
 
+#if os(watchOS)
+import WatchKit
+#endif
+
 class MetronomeEngine: ObservableObject {
     @Published var bpm: Double = 120.0 {
         didSet {
@@ -21,15 +25,14 @@ class MetronomeEngine: ObservableObject {
                    }
         }
     }
+    @Published var hapticsOnly: Bool = false
     @Published var isPlaying: Bool = false
     @Published var timeSignature: Int = 4
     @Published var subdivision: Int = 1 // 1 = quarter, 2 = eighth
-    
+
     private var currentBeat: Int = 0
     private var subTickCount: Int = 0
-    
     private var timer: Timer?
-    
     private var accentPlayer: AVAudioPlayer?
     private var subPlayer: AVAudioPlayer?
     
@@ -126,15 +129,27 @@ class MetronomeEngine: ObservableObject {
     // In MetronomeEngine.swift
 
     private func playAccentTick() {
-        accentPlayer?.stop()
-        accentPlayer?.currentTime = 0
-        accentPlayer?.play()
+        // On all platforms, optionally play the accent sound
+        if !hapticsOnly {
+            accentPlayer?.stop()
+            accentPlayer?.currentTime = 0
+            accentPlayer?.play()
+        }
+        #if os(watchOS)
+        WKInterfaceDevice.current().play(.directionUp)
+        #endif
     }
 
     private func playSubTick() {
-        subPlayer?.stop()
-        subPlayer?.currentTime = 0
-        subPlayer?.play()
+        // On all platforms, optionally play the subdivision sound
+        if !hapticsOnly {
+            subPlayer?.stop()
+            subPlayer?.currentTime = 0
+            subPlayer?.play()
+        }
+        #if os(watchOS)
+        WKInterfaceDevice.current().play(.click)
+        #endif
     }
     
     // MARK: - update bpm from knob
