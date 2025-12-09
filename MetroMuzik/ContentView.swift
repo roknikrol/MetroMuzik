@@ -49,8 +49,10 @@ struct ContentView: View {
                                 .foregroundColor(.gray)
                                 .font(.title2)
                         }
+                        #if os(macOS)
                         .menuStyle(BorderedButtonMenuStyle()) // Mac style
                         .frame(width: 60, height: 25)
+                        #endif
                         .background(NeumorphicBackground())
                     }
                 }
@@ -98,7 +100,9 @@ struct ContentView: View {
             }
             .padding()
         }
-        .frame(minWidth: 400, minHeight: 600) // Mac Window Size
+        #if os(macOS)
+            .frame(minWidth: 400, minHeight: 600) // Mac Window Size
+        #endif
     }
     
     // Helper to switch icons

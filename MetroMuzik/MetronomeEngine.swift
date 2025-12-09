@@ -7,10 +7,20 @@
 
 import Foundation
 import AVFoundation
-import AppKit // Needed for NSSound
 
 class MetronomeEngine: ObservableObject {
-    @Published var bpm: Double = 120.0
+    @Published var bpm: Double = 120.0 {
+        didSet {
+            // Optional: clamp here too if you don’t already
+                   if bpm < 40 { bpm = 40 }
+                   if bpm > 400 { bpm = 400 }
+
+                   // If metronome is running, update its speed
+                   if isPlaying {
+                       startTimer()
+                   }
+        }
+    }
     @Published var isPlaying: Bool = false
     @Published var timeSignature: Int = 4
     @Published var subdivision: Int = 1 // 1 = quarter, 2 = eighth
@@ -44,8 +54,8 @@ class MetronomeEngine: ObservableObject {
             }
         }
         //initialize both player
-        accentPlayer = loadPlayer(fileName: "bip")
-        subPlayer = loadPlayer(fileName: "boop")
+        accentPlayer = loadPlayer(fileName: "boop")
+        subPlayer = loadPlayer(fileName: "bip")
     }
     
     // MARK: - update bpm from knob

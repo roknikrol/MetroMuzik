@@ -47,6 +47,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D51C31042EE7ADF5004F808A /* Exceptions for "MetroMuzik" folder in "MetroMuzika iOS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				bip.wav,
+				boop.wav,
+				ContentView.swift,
+				MetronomeEngine.swift,
+			);
+			target = D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */;
+		};
 		D524DDE62EE1362B008F45D7 /* Exceptions for "MetroMuzik" folder in "MetroMuzikTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -77,6 +87,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				D524DDE62EE1362B008F45D7 /* Exceptions for "MetroMuzik" folder in "MetroMuzikTests" target */,
+				D51C31042EE7ADF5004F808A /* Exceptions for "MetroMuzik" folder in "MetroMuzika iOS" target */,
 			);
 			path = MetroMuzik;
 			sourceTree = "<group>";
@@ -483,6 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B84Z37LBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -512,6 +524,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B84Z37LBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
