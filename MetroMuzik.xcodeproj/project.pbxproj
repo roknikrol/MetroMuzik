@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
+		D51C30E92EE7AD38004F808A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D524DDA92EE12B3C008F45D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D51C30DB2EE7AD36004F808A;
+			remoteInfo = "MetroMuzika iOS";
+		};
+		D51C30F32EE7AD38004F808A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D524DDA92EE12B3C008F45D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D51C30DB2EE7AD36004F808A;
+			remoteInfo = "MetroMuzika iOS";
+		};
 		D524DDC02EE12B3D008F45D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D524DDA92EE12B3C008F45D7 /* Project object */;
@@ -24,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D51C30DC2EE7AD36004F808A /* MetroMuzika iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetroMuzika iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D51C30E82EE7AD38004F808A /* MetroMuzika iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetroMuzika iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D51C30F22EE7AD38004F808A /* MetroMuzika iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MetroMuzika iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524DDB12EE12B3C008F45D7 /* MetroMuzik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroMuzik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524DDBF2EE12B3D008F45D7 /* MetroMuzikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroMuzikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroMuzikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +58,21 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D51C30DD2EE7AD36004F808A /* MetroMuzika iOS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "MetroMuzika iOS";
+			sourceTree = "<group>";
+		};
+		D51C30EB2EE7AD38004F808A /* MetroMuzika iOSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "MetroMuzika iOSTests";
+			sourceTree = "<group>";
+		};
+		D51C30F52EE7AD38004F808A /* MetroMuzika iOSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "MetroMuzika iOSUITests";
+			sourceTree = "<group>";
+		};
 		D524DDB32EE12B3C008F45D7 /* MetroMuzik */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -62,6 +94,27 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D51C30D92EE7AD36004F808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30E52EE7AD38004F808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30EF2EE7AD38004F808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D524DDAE2EE12B3C008F45D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +145,9 @@
 				D524DDB32EE12B3C008F45D7 /* MetroMuzik */,
 				D524DDC22EE12B3D008F45D7 /* MetroMuzikTests */,
 				D524DDCC2EE12B3D008F45D7 /* MetroMuzikUITests */,
+				D51C30DD2EE7AD36004F808A /* MetroMuzika iOS */,
+				D51C30EB2EE7AD38004F808A /* MetroMuzika iOSTests */,
+				D51C30F52EE7AD38004F808A /* MetroMuzika iOSUITests */,
 				D524DDB22EE12B3C008F45D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +158,9 @@
 				D524DDB12EE12B3C008F45D7 /* MetroMuzik.app */,
 				D524DDBF2EE12B3D008F45D7 /* MetroMuzikTests.xctest */,
 				D524DDC92EE12B3D008F45D7 /* MetroMuzikUITests.xctest */,
+				D51C30DC2EE7AD36004F808A /* MetroMuzika iOS.app */,
+				D51C30E82EE7AD38004F808A /* MetroMuzika iOSTests.xctest */,
+				D51C30F22EE7AD38004F808A /* MetroMuzika iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +168,74 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D51C30FA2EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOS" */;
+			buildPhases = (
+				D51C30D82EE7AD36004F808A /* Sources */,
+				D51C30D92EE7AD36004F808A /* Frameworks */,
+				D51C30DA2EE7AD36004F808A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D51C30DD2EE7AD36004F808A /* MetroMuzika iOS */,
+			);
+			name = "MetroMuzika iOS";
+			packageProductDependencies = (
+			);
+			productName = "MetroMuzika iOS";
+			productReference = D51C30DC2EE7AD36004F808A /* MetroMuzika iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D51C30E72EE7AD38004F808A /* MetroMuzika iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D51C30FD2EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOSTests" */;
+			buildPhases = (
+				D51C30E42EE7AD38004F808A /* Sources */,
+				D51C30E52EE7AD38004F808A /* Frameworks */,
+				D51C30E62EE7AD38004F808A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D51C30EA2EE7AD38004F808A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D51C30EB2EE7AD38004F808A /* MetroMuzika iOSTests */,
+			);
+			name = "MetroMuzika iOSTests";
+			packageProductDependencies = (
+			);
+			productName = "MetroMuzika iOSTests";
+			productReference = D51C30E82EE7AD38004F808A /* MetroMuzika iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D51C30F12EE7AD38004F808A /* MetroMuzika iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D51C31002EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOSUITests" */;
+			buildPhases = (
+				D51C30EE2EE7AD38004F808A /* Sources */,
+				D51C30EF2EE7AD38004F808A /* Frameworks */,
+				D51C30F02EE7AD38004F808A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D51C30F42EE7AD38004F808A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D51C30F52EE7AD38004F808A /* MetroMuzika iOSUITests */,
+			);
+			name = "MetroMuzika iOSUITests";
+			packageProductDependencies = (
+			);
+			productName = "MetroMuzika iOSUITests";
+			productReference = D51C30F22EE7AD38004F808A /* MetroMuzika iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D524DDB02EE12B3C008F45D7 /* MetroMuzik */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D524DDD32EE12B3D008F45D7 /* Build configuration list for PBXNativeTarget "MetroMuzik" */;
@@ -187,6 +314,17 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					D51C30DB2EE7AD36004F808A = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					D51C30E72EE7AD38004F808A = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = D51C30DB2EE7AD36004F808A;
+					};
+					D51C30F12EE7AD38004F808A = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = D51C30DB2EE7AD36004F808A;
+					};
 					D524DDB02EE12B3C008F45D7 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -217,11 +355,35 @@
 				D524DDB02EE12B3C008F45D7 /* MetroMuzik */,
 				D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */,
 				D524DDC82EE12B3D008F45D7 /* MetroMuzikUITests */,
+				D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */,
+				D51C30E72EE7AD38004F808A /* MetroMuzika iOSTests */,
+				D51C30F12EE7AD38004F808A /* MetroMuzika iOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D51C30DA2EE7AD36004F808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30E62EE7AD38004F808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30F02EE7AD38004F808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D524DDAF2EE12B3C008F45D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +408,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D51C30D82EE7AD36004F808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30E42EE7AD38004F808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D51C30EE2EE7AD38004F808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D524DDAD2EE12B3C008F45D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -270,6 +453,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D51C30EA2EE7AD38004F808A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */;
+			targetProxy = D51C30E92EE7AD38004F808A /* PBXContainerItemProxy */;
+		};
+		D51C30F42EE7AD38004F808A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */;
+			targetProxy = D51C30F32EE7AD38004F808A /* PBXContainerItemProxy */;
+		};
 		D524DDC12EE12B3D008F45D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D524DDB02EE12B3C008F45D7 /* MetroMuzik */;
@@ -283,6 +476,141 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D51C30FB2EE7AD38004F808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D51C30FC2EE7AD38004F808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D51C30FE2EE7AD38004F808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetroMuzika iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MetroMuzika iOS";
+			};
+			name = Debug;
+		};
+		D51C30FF2EE7AD38004F808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetroMuzika iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MetroMuzika iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D51C31012EE7AD38004F808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MetroMuzika iOS";
+			};
+			name = Debug;
+		};
+		D51C31022EE7AD38004F808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "nik.lab.MetroMuzika-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MetroMuzika iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D524DDD12EE12B3D008F45D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -410,6 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -435,6 +764,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -518,6 +848,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D51C30FA2EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D51C30FB2EE7AD38004F808A /* Debug */,
+				D51C30FC2EE7AD38004F808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D51C30FD2EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D51C30FE2EE7AD38004F808A /* Debug */,
+				D51C30FF2EE7AD38004F808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D51C31002EE7AD38004F808A /* Build configuration list for PBXNativeTarget "MetroMuzika iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D51C31012EE7AD38004F808A /* Debug */,
+				D51C31022EE7AD38004F808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D524DDAC2EE12B3C008F45D7 /* Build configuration list for PBXProject "MetroMuzik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

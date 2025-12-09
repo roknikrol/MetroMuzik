@@ -3,9 +3,9 @@ import SwiftUI
 // EXTENSION: Color Palette
 // Extending the Color class to add our custom greyscale theme
 extension Color {
-    static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
+    static let offWhite = Color(red: 180/255, green: 200/255, blue: 190/255)
     static let darkShadow = Color.black.opacity(0.2)
-    static let lightShadow = Color.white.opacity(0.7)
+    static let lightShadow = Color.white.opacity(0.1)
 }
 
 struct ContentView: View {
@@ -31,7 +31,7 @@ struct ContentView: View {
                             }
                         }
                         .labelsHidden()
-                        .frame(width: 60)
+                        .frame(width: 50)
                         .background(NeumorphicBackground())
                     }
                     
@@ -277,4 +277,7 @@ struct NeumorphicBackground: View {
             .shadow(color: .darkShadow, radius: 5, x: 5, y: 5)
             .shadow(color: .lightShadow, radius: 5, x: -5, y: -5)
     }
+}
+#Preview {
+    ContentView()
 }
