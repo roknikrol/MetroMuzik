@@ -213,7 +213,7 @@ struct ContentView: View {
                 // Initialize rotation from current BPM
                 totalRotation = rotationForBpm(bpm)
             }
-            .onChange(of: bpm) { newValue in
+            .onChange(of: bpm) { oldValue, newValue in
                 // Keep knob in sync if BPM changes from elsewhere (e.g. Tap)
                 totalRotation = rotationForBpm(newValue)
             }

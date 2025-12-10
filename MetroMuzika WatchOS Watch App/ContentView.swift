@@ -39,7 +39,7 @@ struct ContentView: View {
             sensitivity: .medium,
             isHapticFeedbackEnabled: true
         )
-        .onChange(of: crownValue) { newValue in
+        .onChange(of: crownValue) { oldValue, newValue in
             engine.bpm = newValue
         }
     }
