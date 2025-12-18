@@ -103,6 +103,13 @@
 			);
 			target = D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */;
 		};
+		D5A769FA2EF38CA600C8879F /* Exceptions for "MetroMuzika WatchOS Watch App" folder in "MetroMuzika WatchOS Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"MetroMuzika-WatchOS-Watch-App-Info.plist",
+			);
+			target = D51C310B2EE7BC4C004F808A /* MetroMuzika WatchOS Watch App */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -126,6 +133,9 @@
 		};
 		D51C310D2EE7BC4C004F808A /* MetroMuzika WatchOS Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D5A769FA2EF38CA600C8879F /* Exceptions for "MetroMuzika WatchOS Watch App" folder in "MetroMuzika WatchOS Watch App" target */,
+			);
 			path = "MetroMuzika WatchOS Watch App";
 			sourceTree = "<group>";
 		};
@@ -855,8 +865,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B84Z37LBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MetroMuzika-WatchOS-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MetroMuzika WatchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nik.lab.MetroMuzik;
@@ -883,8 +895,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B84Z37LBY3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MetroMuzika-WatchOS-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MetroMuzika WatchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nik.lab.MetroMuzik;
