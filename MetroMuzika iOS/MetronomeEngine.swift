@@ -136,7 +136,7 @@ class MetronomeEngine: ObservableObject {
             accentPlayer?.play()
         }
         #if os(watchOS)
-        WKInterfaceDevice.current().play(.directionUp)
+        WKInterfaceDevice.current().play(.failure)
         #endif
     }
 
@@ -148,7 +148,7 @@ class MetronomeEngine: ObservableObject {
             subPlayer?.play()
         }
         #if os(watchOS)
-        WKInterfaceDevice.current().play(.click)
+        WKInterfaceDevice.current().play(.retry)
         #endif
     }
     
