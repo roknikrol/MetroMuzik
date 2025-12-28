@@ -12,7 +12,7 @@ import AVFoundation
 import WatchKit
 #endif
 
-class MetronomeEngine: ObservableObject {
+class MetronomeEngine: NSObject, ObservableObject {
     @Published var bpm: Double = 120.0 {
         didSet {
             // Optional: clamp here too if you don’t already
@@ -30,13 +30,37 @@ class MetronomeEngine: ObservableObject {
     @Published var timeSignature: Int = 4
     @Published var subdivision: Int = 1 // 1 = quarter, 2 = eighth
 
+#if os(watchOS)
+    /// Keeps the watch app running (time-limited) when the display dims / wrist goes down.
+    /// Without this, timers and UI callbacks may pause in Always On / inactive state.
+    private var extendedRuntimeSession: WKExtendedRuntimeSession?
+#endif
+
     private var currentBeat: Int = 0
     private var subTickCount: Int = 0
     private var timer: Timer?
     private var accentPlayer: AVAudioPlayer?
     private var subPlayer: AVAudioPlayer?
     
-    init(){
+    #if os(watchOS)
+    private func startExtendedRuntimeIfNeeded() {
+        // If already running, do nothing
+        if let s = extendedRuntimeSession, s.state == .running { return }
+
+        let s = WKExtendedRuntimeSession()
+        s.delegate = self
+        extendedRuntimeSession = s
+        s.start()
+    }
+
+    private func stopExtendedRuntimeIfNeeded() {
+        extendedRuntimeSession?.invalidate()
+        extendedRuntimeSession = nil
+    }
+    #endif
+
+    override init(){
+        super.init()
         setupAudioPLayer()
     #if os(iOS) || os(watchOS)
     let session = AVAudioSession.sharedInstance()
@@ -74,14 +98,19 @@ class MetronomeEngine: ObservableObject {
         isPlaying.toggle()
         if isPlaying {
             startTimer()
+            #if os(watchOS)
+            startExtendedRuntimeIfNeeded()
+            #endif
         } else {
             stopTimer()
+            #if os(watchOS)
+            stopExtendedRuntimeIfNeeded()
+            #endif
         }
     }
     
     private func startTimer() {
         stopTimer()
-    
         currentBeat = 0
         subTickCount = 0
         
@@ -201,3 +230,35 @@ class MetronomeEngine: ObservableObject {
         }
     }
 }
+
+#if os(watchOS)
+extension MetronomeEngine: WKExtendedRuntimeSessionDelegate {
+   
+    
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // Session started. Good time to ensure audio session stays active if needed.
+    }
+
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // The system will end the session soon. Stop cleanly.
+        DispatchQueue.main.async {
+            if self.isPlaying {
+                self.isPlaying = false
+            }
+            self.stopTimer()
+        }
+    }
+
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession,
+                               didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason,
+                               error: Error?) {
+        // Session ended (time limit, user action, system decision, etc.).
+        // IMPORTANT: don’t automatically stop the metronome here.
+        // The app can still be in the foreground and should keep playing.
+        DispatchQueue.main.async {
+            self.extendedRuntimeSession = nil
+        }
+    }
+}
+#endif
+
