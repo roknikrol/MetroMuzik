@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-class MetronomeEngine: ObservableObject {
+class MetronomeEngineMac: ObservableObject {
     @Published var bpm: Double = 120.0 {
         didSet {
             // Optional: clamp here too if you don’t already

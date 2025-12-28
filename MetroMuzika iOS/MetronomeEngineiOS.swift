@@ -12,7 +12,7 @@ import AVFoundation
 import WatchKit
 #endif
 
-class MetronomeEngine: NSObject, ObservableObject {
+class MetronomeEngineiOS: NSObject, ObservableObject {
     @Published var bpm: Double = 120.0 {
         didSet {
             // Optional: clamp here too if you don’t already
@@ -62,11 +62,11 @@ class MetronomeEngine: NSObject, ObservableObject {
     override init(){
         super.init()
         setupAudioPLayer()
-    #if os(iOS) || os(watchOS)
-    let session = AVAudioSession.sharedInstance()
-    try? session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
-    try? session.setActive(true)
-    #endif
+        #if os(iOS) || os(watchOS)
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+        try? session.setActive(true)
+        #endif
     }
     
     private func setupAudioPLayer() {
@@ -231,8 +231,9 @@ class MetronomeEngine: NSObject, ObservableObject {
     }
 }
 
+// below extension is required to keep the app running when the wrist is turned (screen dimed)
 #if os(watchOS)
-extension MetronomeEngine: WKExtendedRuntimeSessionDelegate {
+extension MetronomeEngineiOS: WKExtendedRuntimeSessionDelegate {
    
     
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {

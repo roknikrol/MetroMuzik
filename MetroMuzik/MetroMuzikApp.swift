@@ -11,7 +11,7 @@ import SwiftUI
 struct MetroMuzikApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentViewMac()
         }
     }
 }

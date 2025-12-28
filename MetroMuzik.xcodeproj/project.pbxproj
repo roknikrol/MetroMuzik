@@ -76,7 +76,6 @@
 			membershipExceptions = (
 				bip.wav,
 				boop.wav,
-				ContentView.swift,
 			);
 			target = D51C30DB2EE7AD36004F808A /* MetroMuzika iOS */;
 		};
@@ -91,7 +90,7 @@
 		D51C313C2EE7C0C8004F808A /* Exceptions for "MetroMuzika iOS" folder in "MetroMuzika WatchOS Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MetronomeEngine.swift,
+				MetronomeEngineiOS.swift,
 			);
 			target = D51C310B2EE7BC4C004F808A /* MetroMuzika WatchOS Watch App */;
 		};
@@ -102,13 +101,6 @@
 				boop.wav,
 			);
 			target = D524DDBE2EE12B3D008F45D7 /* MetroMuzikTests */;
-		};
-		D5A769FA2EF38CA600C8879F /* Exceptions for "MetroMuzika WatchOS Watch App" folder in "MetroMuzika WatchOS Watch App" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"MetroMuzika-WatchOS-Watch-App-Info.plist",
-			);
-			target = D51C310B2EE7BC4C004F808A /* MetroMuzika WatchOS Watch App */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -133,9 +125,6 @@
 		};
 		D51C310D2EE7BC4C004F808A /* MetroMuzika WatchOS Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D5A769FA2EF38CA600C8879F /* Exceptions for "MetroMuzika WatchOS Watch App" folder in "MetroMuzika WatchOS Watch App" target */,
-			);
 			path = "MetroMuzika WatchOS Watch App";
 			sourceTree = "<group>";
 		};
