@@ -41,6 +41,7 @@ class MetronomeEngineiOS: NSObject, ObservableObject {
     private var timer: Timer?
     private var accentPlayer: AVAudioPlayer?
     private var subPlayer: AVAudioPlayer?
+    private var isReschedulingTimer: Bool = false
     
     #if os(watchOS)
     private func startExtendedRuntimeIfNeeded() {
@@ -111,11 +112,8 @@ class MetronomeEngineiOS: NSObject, ObservableObject {
     
     private func startTimer() {
         stopTimer()
-        currentBeat = 0
-        subTickCount = 0
-        
         // Calculate interval: 60 seconds / BPM / subdivision
-        let interval = 60.0 / bpm / Double(subdivision)
+        let interval = 60.0 / bpm
         
         // Schedule the timer
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
@@ -128,27 +126,18 @@ class MetronomeEngineiOS: NSObject, ObservableObject {
         timer = nil
     }
     
-    
     private func advanceBeatAndPLayTick() {
         // 1. Advance the sub-tick counter
-        subTickCount += 1
-        
-        // 2. Check if we've completed a main beat (1, 2, 3, 4...)
-        if subTickCount >= subdivision {
-            subTickCount = 0
-            currentBeat += 1
-        }
-        
-        // 3. Check if we've started a new measure (Beat 1)
+        currentBeat += 1
+
+        // 2. Check if we've started a new measure (Beat 1)
         if currentBeat > timeSignature {
             currentBeat = 1 // Reset to the first beat of the next measure
         }
-        
-        // 4. Decide which sound to play
-        
+
         // Play Accent sound only on the first subdivision tick (subTickCount == 0)
         // AND only if it's the first beat of the measure (currentBeat == 1)
-        if currentBeat == 1 && subTickCount == 0 {
+        if currentBeat == 1 {
             playAccentTick()
         } else {
             playSubTick()
@@ -185,18 +174,11 @@ class MetronomeEngineiOS: NSObject, ObservableObject {
     // Updates BPM based on the 3D wheel rotation
     func updateBpmFromKnob(angle: Double) {
         // angle is in degrees, 0° at noon, increasing clockwise
-
         // Each 25° → 5 BPM, starting at 120 BPM when angle = 0°
         var newBpm = 120.0 + (angle / 25.0) * 5.0
-
         // Optional clamp to keep in a sane range
-        if newBpm < 40.0 { newBpm = 40.0 }
-        if newBpm > 400.0 { newBpm = 400.0 }
-
+        newBpm = max(40, min(400, newBpm))
         bpm = newBpm
-        
-        // If playing, restart timer to catch up to new speed immediately
-        if isPlaying { startTimer() }
     }
     
     
@@ -225,8 +207,6 @@ class MetronomeEngineiOS: NSObject, ObservableObject {
             let avgInterval = intervals.reduce(0, +) / Double(intervals.count)
             let newBpm = 60.0 / avgInterval
             self.bpm = round(newBpm)
-            
-            if isPlaying { startTimer() }
         }
     }
 }

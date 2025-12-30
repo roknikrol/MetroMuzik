@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var engine: MetronomeEngineiOS
-    @State private var crownValue: Double = 120
+//    @State private var crownValue: Double = 120
+    @FocusState private var crownFocused: Bool
 
     var body: some View {
         VStack(spacing: 8) {
@@ -31,17 +32,19 @@ struct ContentView: View {
             Toggle("Mute", isOn: $engine.hapticsOnly).font(.caption2)
         }
         .focusable(true)
+        .focused($crownFocused)
+        .onAppear {
+            crownFocused = true
+        }
         .digitalCrownRotation(
-            $crownValue,
+            $engine.bpm,
             from: 40,
             through: 400,
             by: 1,
             sensitivity: .medium,
+            isContinuous: true,
             isHapticFeedbackEnabled: true
         )
-        .onChange(of: crownValue) { oldValue, newValue in
-            engine.bpm = newValue
-        }
     }
 }
 

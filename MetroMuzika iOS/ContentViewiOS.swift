@@ -10,7 +10,7 @@ extension Color {
 
 struct ContentViewiOS: View {
     // Instantiate our Engine
-    @StateObject var engine = MetronomeEngine()
+    @StateObject var engine = MetronomeEngineiOS()
     
     var body: some View {
         ZStack {
