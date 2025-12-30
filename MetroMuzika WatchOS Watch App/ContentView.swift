@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var engine: MetronomeEngineiOS
+    @EnvironmentObject var engine: MetronomeEngineWatchOS
 //    @State private var crownValue: Double = 120
     @FocusState private var crownFocused: Bool
 
