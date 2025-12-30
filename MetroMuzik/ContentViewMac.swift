@@ -8,9 +8,9 @@ extension Color {
     static let lightShadow = Color.white.opacity(0.1)
 }
 
-struct ContentView: View {
+struct ContentViewMac: View {
     // Instantiate our Engine
-    @StateObject var engine = MetronomeEngine()
+    @StateObject var engine = MetronomeEngineMac()
     
     var body: some View {
         ZStack {
@@ -283,5 +283,5 @@ struct NeumorphicBackground: View {
     }
 }
 #Preview {
-    ContentView()
+    ContentViewMac()
 }

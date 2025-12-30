@@ -8,7 +8,11 @@
 import Foundation
 import AVFoundation
 
-class MetronomeEngine: ObservableObject {
+#if os(watchOS)
+import WatchKit
+#endif
+
+class MetronomeEngineiOS: NSObject, ObservableObject {
     @Published var bpm: Double = 120.0 {
         didSet {
             // Optional: clamp here too if you don’t already
@@ -21,25 +25,49 @@ class MetronomeEngine: ObservableObject {
                    }
         }
     }
+    @Published var hapticsOnly: Bool = false
     @Published var isPlaying: Bool = false
     @Published var timeSignature: Int = 4
     @Published var subdivision: Int = 1 // 1 = quarter, 2 = eighth
-    
+
+#if os(watchOS)
+    /// Keeps the watch app running (time-limited) when the display dims / wrist goes down.
+    /// Without this, timers and UI callbacks may pause in Always On / inactive state.
+    private var extendedRuntimeSession: WKExtendedRuntimeSession?
+#endif
+
     private var currentBeat: Int = 0
     private var subTickCount: Int = 0
-    
     private var timer: Timer?
-    
     private var accentPlayer: AVAudioPlayer?
     private var subPlayer: AVAudioPlayer?
+    private var isReschedulingTimer: Bool = false
     
-    init(){
-        setupAudioPLayer()
-    #if os(iOS) || os(watchOS)
-    let session = AVAudioSession.sharedInstance()
-    try? session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
-    try? session.setActive(true)
+    #if os(watchOS)
+    private func startExtendedRuntimeIfNeeded() {
+        // If already running, do nothing
+        if let s = extendedRuntimeSession, s.state == .running { return }
+
+        let s = WKExtendedRuntimeSession()
+        s.delegate = self
+        extendedRuntimeSession = s
+        s.start()
+    }
+
+    private func stopExtendedRuntimeIfNeeded() {
+        extendedRuntimeSession?.invalidate()
+        extendedRuntimeSession = nil
+    }
     #endif
+
+    override init(){
+        super.init()
+        setupAudioPLayer()
+        #if os(iOS) || os(watchOS)
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+        try? session.setActive(true)
+        #endif
     }
     
     private func setupAudioPLayer() {
@@ -71,19 +99,21 @@ class MetronomeEngine: ObservableObject {
         isPlaying.toggle()
         if isPlaying {
             startTimer()
+            #if os(watchOS)
+            startExtendedRuntimeIfNeeded()
+            #endif
         } else {
             stopTimer()
+            #if os(watchOS)
+            stopExtendedRuntimeIfNeeded()
+            #endif
         }
     }
     
     private func startTimer() {
         stopTimer()
-    
-        currentBeat = 0
-        subTickCount = 0
-        
         // Calculate interval: 60 seconds / BPM / subdivision
-        let interval = 60.0 / bpm / Double(subdivision)
+        let interval = 60.0 / bpm
         
         // Schedule the timer
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
@@ -96,27 +126,18 @@ class MetronomeEngine: ObservableObject {
         timer = nil
     }
     
-    
     private func advanceBeatAndPLayTick() {
         // 1. Advance the sub-tick counter
-        subTickCount += 1
-        
-        // 2. Check if we've completed a main beat (1, 2, 3, 4...)
-        if subTickCount >= subdivision {
-            subTickCount = 0
-            currentBeat += 1
-        }
-        
-        // 3. Check if we've started a new measure (Beat 1)
+        currentBeat += 1
+
+        // 2. Check if we've started a new measure (Beat 1)
         if currentBeat > timeSignature {
             currentBeat = 1 // Reset to the first beat of the next measure
         }
-        
-        // 4. Decide which sound to play
-        
+
         // Play Accent sound only on the first subdivision tick (subTickCount == 0)
         // AND only if it's the first beat of the measure (currentBeat == 1)
-        if currentBeat == 1 && subTickCount == 0 {
+        if currentBeat == 1 {
             playAccentTick()
         } else {
             playSubTick()
@@ -126,33 +147,38 @@ class MetronomeEngine: ObservableObject {
     // In MetronomeEngine.swift
 
     private func playAccentTick() {
-        accentPlayer?.stop()
-        accentPlayer?.currentTime = 0
-        accentPlayer?.play()
+        // On all platforms, optionally play the accent sound
+        if !hapticsOnly {
+            accentPlayer?.stop()
+            accentPlayer?.currentTime = 0
+            accentPlayer?.play()
+        }
+        #if os(watchOS)
+        WKInterfaceDevice.current().play(.failure)
+        #endif
     }
 
     private func playSubTick() {
-        subPlayer?.stop()
-        subPlayer?.currentTime = 0
-        subPlayer?.play()
+        // On all platforms, optionally play the subdivision sound
+        if !hapticsOnly {
+            subPlayer?.stop()
+            subPlayer?.currentTime = 0
+            subPlayer?.play()
+        }
+        #if os(watchOS)
+        WKInterfaceDevice.current().play(.retry)
+        #endif
     }
     
     // MARK: - update bpm from knob
     // Updates BPM based on the 3D wheel rotation
     func updateBpmFromKnob(angle: Double) {
         // angle is in degrees, 0° at noon, increasing clockwise
-
         // Each 25° → 5 BPM, starting at 120 BPM when angle = 0°
         var newBpm = 120.0 + (angle / 25.0) * 5.0
-
         // Optional clamp to keep in a sane range
-        if newBpm < 40.0 { newBpm = 40.0 }
-        if newBpm > 400.0 { newBpm = 400.0 }
-
+        newBpm = max(40, min(400, newBpm))
         bpm = newBpm
-        
-        // If playing, restart timer to catch up to new speed immediately
-        if isPlaying { startTimer() }
     }
     
     
@@ -181,8 +207,39 @@ class MetronomeEngine: ObservableObject {
             let avgInterval = intervals.reduce(0, +) / Double(intervals.count)
             let newBpm = 60.0 / avgInterval
             self.bpm = round(newBpm)
-            
-            if isPlaying { startTimer() }
         }
     }
 }
+
+// below extension is required to keep the app running when the wrist is turned (screen dimed)
+#if os(watchOS)
+extension MetronomeEngineiOS: WKExtendedRuntimeSessionDelegate {
+   
+    
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // Session started. Good time to ensure audio session stays active if needed.
+    }
+
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        // The system will end the session soon. Stop cleanly.
+        DispatchQueue.main.async {
+            if self.isPlaying {
+                self.isPlaying = false
+            }
+            self.stopTimer()
+        }
+    }
+
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession,
+                               didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason,
+                               error: Error?) {
+        // Session ended (time limit, user action, system decision, etc.).
+        // IMPORTANT: don’t automatically stop the metronome here.
+        // The app can still be in the foreground and should keep playing.
+        DispatchQueue.main.async {
+            self.extendedRuntimeSession = nil
+        }
+    }
+}
+#endif
+
