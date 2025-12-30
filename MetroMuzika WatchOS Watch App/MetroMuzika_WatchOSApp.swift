@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MetroMuzika_WatchOS_Watch_AppApp: App {
     
-    @StateObject private var engine = MetronomeEngineiOS()
+    @StateObject private var engine = MetronomeEngineWatchOS()
     var body: some Scene {
         WindowGroup {
             ContentView().environmentObject(engine)
